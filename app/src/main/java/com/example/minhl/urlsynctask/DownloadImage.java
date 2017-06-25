@@ -30,17 +30,15 @@ public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
         try {
             URL url = new URL(urlImage);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
             httpURLConnection.setAllowUserInteraction(false);
             httpURLConnection.setInstanceFollowRedirects(true);
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.connect();
             int resCode = httpURLConnection.getResponseCode();
-            if (resCode == HttpURLConnection.HTTP_OK) {
-                in = httpURLConnection.getInputStream();
-            } else {
+            if (resCode != HttpURLConnection.HTTP_OK) {
                 return null;
             }
+            in = httpURLConnection.getInputStream();
             Bitmap bitmap = BitmapFactory.decodeStream(in);
             return bitmap;
 

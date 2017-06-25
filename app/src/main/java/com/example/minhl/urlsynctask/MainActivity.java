@@ -37,23 +37,26 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Mạng sida rồi", Toast.LENGTH_SHORT).show();
             return false;
         }
-        Toast.makeText(this, "Network OK", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Xài Wifi chùa dc rồi đó", Toast.LENGTH_SHORT).show();
         return true;
     }
 
     public void downloadImage(View view) {
-        if (checkConnection()) {
-            String url = "http://cms.kienthuc.net.vn/zoom/1000/uploaded/nguyenanhson/2016_04_29/4/hot-girl-tra-sua-dep-nhu-nang-mai-tai-da-lat-hinh-5.jpg";
-            DownloadImage downloadImage = new DownloadImage(imageView);
-            downloadImage.execute(url);
+        if (!checkConnection()) {
+            return;
         }
+        String url = "http://cms.kienthuc.net.vn/zoom/1000/uploaded/nguyenanhson/2016_04_29/4/hot-girl-tra-sua-dep-nhu-nang-mai-tai-da-lat-hinh-5.jpg";
+        DownloadImage downloadImage = new DownloadImage(imageView);
+        downloadImage.execute(url);
+
     }
 
     public void downloadText(View view) {
-        if (checkConnection()) {
-            String url = "https://pastebin.com/raw/0RHGYUnh";
-            DownloadText downloadText = new DownloadText(textView);
-            downloadText.execute(url);
+        if (!checkConnection()) {
+            return;
         }
+        String url = "https://pastebin.com/raw/0RHGYUnh";
+        DownloadText downloadText = new DownloadText(textView);
+        downloadText.execute(url);
     }
 }

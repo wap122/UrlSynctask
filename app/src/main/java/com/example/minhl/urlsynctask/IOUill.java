@@ -17,6 +17,7 @@ class IOUill {
             e.printStackTrace();
         }
     }
+
     public static void closeQuiety(Reader reader) {
         try {
             reader.close();
