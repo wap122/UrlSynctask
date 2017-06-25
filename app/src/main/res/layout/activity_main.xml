@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.minhl.urlsynctask.MainActivity">
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+    <TextView
+        android:text="Chữ sẽ hiện thi ở đây khi bấm vào Download text"
+        android:id="@+id/tv"
+        android:layout_below="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+    <Button
+        android:layout_below="@id/tv"
+        android:id="@+id/btn_1"
+        android:text="Download Image"
+        android:onClick="downloadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_below="@+id/tv"
+        android:onClick="downloadText"
+        android:layout_toEndOf="@+id/btn_1"
+        android:text="Download Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
