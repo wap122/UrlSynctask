@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -18,9 +19,12 @@ import java.net.URL;
 
 public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
     private ImageView imageView;
+    private Button btnTemp;
 
-    public DownloadImage(ImageView imageView) {
+    public DownloadImage(Button btnTemp, ImageView imageView) {
+
         this.imageView = imageView;
+        this.btnTemp = btnTemp;
     }
 
     @Override
@@ -57,5 +61,6 @@ public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
         } else {
             Log.d("Thong bao", "Ko tim dc du lieu: ");
         }
+        btnTemp.setEnabled(true);
     }
 }

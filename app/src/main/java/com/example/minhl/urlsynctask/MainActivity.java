@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
     private TextView textView;
+    private Button btnShowImage;
+    private DownloadImage downloadImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.img);
         textView = (TextView) findViewById(R.id.tv);
+        btnShowImage = (Button) findViewById(R.id.btn_1);
+
     }
 
     public boolean checkConnection() {
@@ -45,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         if (!checkConnection()) {
             return;
         }
-        String url = "http://cms.kienthuc.net.vn/zoom/1000/uploaded/nguyenanhson/2016_04_29/4/hot-girl-tra-sua-dep-nhu-nang-mai-tai-da-lat-hinh-5.jpg";
-        DownloadImage downloadImage = new DownloadImage(imageView);
+        String url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/003_Chile.jpg/320px-003_Chile.jpg";
+        downloadImage = new DownloadImage(btnShowImage,imageView);
         downloadImage.execute(url);
 
     }
@@ -58,5 +63,10 @@ public class MainActivity extends AppCompatActivity {
         String url = "https://pastebin.com/raw/0RHGYUnh";
         DownloadText downloadText = new DownloadText(textView);
         downloadText.execute(url);
+    }
+
+    public void stopSyncTask(View view) {
+        downloadImage.cancel(true);
+        btnShowImage.setEnabled(true);
     }
 }

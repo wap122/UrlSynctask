@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     tools:context="com.example.minhl.urlsynctask.MainActivity">
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/img"
-        android:text="Chữ sẽ hiện thi ở đây khi bấm vào Download text" />
+        android:text="@string/textdemo" />
 
     <Button
         android:id="@+id/btn_1"
@@ -33,4 +34,10 @@
         android:layout_toEndOf="@+id/btn_1"
         android:onClick="downloadText"
         android:text="Download Text" />
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Ngừng tải ảnh"
+        android:layout_below="@id/btn_1"
+        android:onClick="stopSyncTask"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
